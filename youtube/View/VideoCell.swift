@@ -59,6 +59,7 @@ class VideoCell: BaseCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.backgroundColor = .secondarySystemBackground
         return imageView
     }()
     
@@ -73,6 +74,7 @@ class VideoCell: BaseCell {
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .secondarySystemBackground
         return imageView
     }()
     

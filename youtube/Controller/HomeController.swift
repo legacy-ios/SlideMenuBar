@@ -16,7 +16,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let mb = MenuBar()
         return mb
     }()
-    
+
+    lazy var settingLauncher: SettingLauncher = {
+        let launcher = SettingLauncher()
+        launcher.homeController = self
+        return launcher
+    }()
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -91,6 +97,16 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
+    func showViewControllerForSetting(with setting: Setting) {
+        let dummyContoller = UIViewController()
+        dummyContoller.navigationItem.title = setting.name
+        dummyContoller.view.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .white
+        let atts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = atts
+        navigationController?.pushViewController(dummyContoller, animated: true)
+    }
+    
     private func configureMenuBar() {
         view.addSubview(menuBar)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuBar)
@@ -109,7 +125,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         navigationController?.navigationBar.barTintColor = UIColor.rgb(red: 230, green: 32, blue: 31)
         navigationController?.navigationBar.isTranslucent = false
         
-        //navigation bar 그림자 지우기
+        //navigation bar delete shadow
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         
@@ -123,13 +139,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     @objc func handleSearch() {
         
     }
-    
+
     @objc func handleOptions() {
         //show menu
-        let blackView = UIView()
-        blackView.backgroundColor = .black
-        view.addSubview(blackView)
-        blackView.frame = view.frame
+        settingLauncher.showSettings()
     }
     
     //MARK: - UICollectionViewDelegateFlowLayout

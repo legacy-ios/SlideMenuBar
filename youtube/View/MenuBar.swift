@@ -22,6 +22,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     }()
     
     let cellId = "cellId"
+    
     let imageNames = ["house.fill","globe","hand.thumbsup.fill","person.fill"]
     
     override init(frame: CGRect) {
