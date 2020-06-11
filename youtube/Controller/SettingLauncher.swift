@@ -9,13 +9,23 @@
 import UIKit
 
 class Setting {
-    let name: String
+    let name: SettingName
     let imageName: String
-    init(name: String, imageName: String) {
+    init(name: SettingName, imageName: String) {
         self.name = name
         self.imageName = imageName
     }
 }
+
+enum SettingName: String {
+    case setting = "Settings"
+    case termPrivacy = "Terms & privacy policy"
+    case sendFeedBack = "Send Feedback"
+    case help = "Help"
+    case switchAccount = "Switch Account"
+    case cancel = "Cancel"
+}
+
 class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
@@ -24,12 +34,12 @@ class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     var homeController: HomeController?
     
     let settings: [Setting] = {
-        return [Setting(name: "Settings", imageName: "gear"),
-         Setting(name: "Terms & privacy policy", imageName: "hand.raised"),
-         Setting(name: "Send Feedback", imageName: "exclamationmark.bubble.fill"),
-         Setting(name: "Help", imageName: "questionmark.circle"),
-         Setting(name: "Switch Account", imageName: "person.circle.fill"),
-         Setting(name: "Cancel", imageName: "xmark")]
+        return [Setting(name: .setting, imageName: "gear"),
+                Setting(name: .termPrivacy, imageName: "hand.raised"),
+                Setting(name: .sendFeedBack, imageName: "exclamationmark.bubble.fill"),
+                Setting(name: .help, imageName: "questionmark.circle"),
+                Setting(name: .switchAccount, imageName: "person.circle.fill"),
+                Setting(name: .switchAccount, imageName: "xmark")]
     }()
     
     lazy var blackView: UIView = {

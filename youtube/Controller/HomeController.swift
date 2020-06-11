@@ -99,7 +99,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     func showViewControllerForSetting(with setting: Setting) {
         let dummyContoller = UIViewController()
-        dummyContoller.navigationItem.title = setting.name
+        dummyContoller.navigationItem.title = setting.name.rawValue
         dummyContoller.view.backgroundColor = .white
         navigationController?.navigationBar.tintColor = .white
         let atts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white]
@@ -130,10 +130,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-        titleLabel.text = "Home"
+        titleLabel.text = "  Home"
         titleLabel.textColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
+        
+        navigationController?.hidesBarsOnSwipe = true
+        
     }
     
     @objc func handleSearch() {

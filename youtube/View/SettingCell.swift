@@ -21,7 +21,7 @@ class SettingCell: BaseCell {
     var setting: Setting? {
         didSet {
             guard let setting = setting else { return }
-            nameLabel.text = setting.name
+            nameLabel.text = setting.name.rawValue
             iconImageView.image = UIImage(systemName: setting.imageName)
         }
     }
