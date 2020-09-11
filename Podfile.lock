@@ -1,0 +1,22 @@
+PODS:
+  - Kingfisher (5.14.0):
+    - Kingfisher/Core (= 5.14.0)
+  - Kingfisher/Core (5.14.0)
+  - YouTubePlayer (0.7.0)
+
+DEPENDENCIES:
+  - Kingfisher (= 5.14.0)
+  - YouTubePlayer
+
+SPEC REPOS:
+  trunk:
+    - Kingfisher
+    - YouTubePlayer
+
+SPEC CHECKSUMS:
+  Kingfisher: 7b64389a43139c903ec434788344c288217c792d
+  YouTubePlayer: d27e302eecbbd6b17c73d9788cb6d817a3815720
+
+PODFILE CHECKSUM: 39808c6bb0bc9c07ebfa09f281cb462f6a0ada61
+
+COCOAPODS: 1.9.1

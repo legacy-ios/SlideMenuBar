@@ -31,15 +31,15 @@ class VideoCell: BaseCell {
                 titleLabel.text = title
             }
             
-            if let thumbNailImage = video?.thumbNailImage {
+            if let thumbNailImage = video?.thumbnail_image_name {
                 thumbnailImageView.loadImage(urlString: thumbNailImage)
             }
             
-            if let profileImage = video?.channel?.profileImage {
+            if let profileImage = video?.channel?.profile_image_name {
                 userProfileImageView.loadImage(urlString: profileImage)
             }
             
-            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
+            if let channelName = video?.channel?.name, let numberOfViews = video?.number_of_views {
                 let numberFomatter = NumberFormatter()
                 numberFomatter.numberStyle = .decimal
                 

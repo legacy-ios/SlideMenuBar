@@ -28,7 +28,6 @@ enum SettingName: String {
 
 class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    
     let cellId = "cellId"
     let cellHeight: CGFloat = 50
     var homeController: HomeController?
@@ -39,7 +38,7 @@ class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
                 Setting(name: .sendFeedBack, imageName: "exclamationmark.bubble.fill"),
                 Setting(name: .help, imageName: "questionmark.circle"),
                 Setting(name: .switchAccount, imageName: "person.circle.fill"),
-                Setting(name: .switchAccount, imageName: "xmark")]
+                Setting(name: .cancel, imageName: "xmark")]
     }()
     
     lazy var blackView: UIView = {
@@ -77,7 +76,6 @@ class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
                 self.collectionView.frame = CGRect(x: 0, y: y, width: window.frame.width, height: height)
             }, completion: nil)
         }
-         
     }
     
     @objc func handleTapGesture() {
